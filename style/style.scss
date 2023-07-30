@@ -1,0 +1,800 @@
+@import '../source/null.scss';
+
+//----------general----------
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+
+._container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: content-box;
+}
+
+._hidden{
+    display: none;
+}
+
+
+@mixin fontStyle ($fs,$fw,$lh,$clr) {
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh;
+    color: $clr;
+}
+
+@mixin flexStyle ($fl, $jc, $ai, $ta) {
+    display: $fl;
+    justify-content: $jc;
+    align-items: $ai;
+    text-align: $ta;
+}
+
+
+$headersColor: #4D4D4D;
+$textColor: #717171;
+$accentColor: #4CAF4F;
+
+//----------/general----------
+
+//----------header----------
+
+.header {
+    width: 100%;
+    padding: 30px 15px;
+    background: #F5F7FA;
+    &__container {
+    }
+
+    &__body {
+        @include flexStyle(flex, start, center, center);
+        gap: 10%;
+        @media (max-width:1220px) {
+            gap: 5%;
+            justify-content: center;
+        }
+        @media (max-width:992px){
+            justify-content: space-between;
+        }
+    }
+
+    &__logo {
+        @media (max-width: 992px) {
+            position: relative;          
+        }
+    }
+
+    &__nav {
+        @include flexStyle(flex, space-between, center, center);
+        gap: 15%;
+        @media (max-width:1220px) {
+            gap: 5%;
+        }
+        @media (max-width:992px){
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            height: 100%;
+            z-index: 100;
+           }
+           @media (max-width:768px) {
+                width: 80%;
+           }
+        ul{
+            @include flexStyle(flex, space-between, center, center);
+            gap: 50px;
+            @media (max-width:1220px) {
+                gap: 30px;
+            }
+            @media (max-width:992px){
+                align-items: start;
+            }
+        }
+        @media (max-width:992px){
+            display: none;
+        }
+    }
+
+    &__buttons {
+    }
+
+    &__icon {
+        display: none;
+        @media (max-width: 992px) {
+        display: block;
+        height: 18px;
+        width: 30px;
+        position: relative;
+        cursor: pointer;
+        z-index: 5;
+        span {
+        transition: all 0.3s ease 0s;
+        top: calc(50% - 1px);
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: $accentColor;
+        &:first-child {
+        top: 0;
+        }
+        &:last-child {
+        top: auto;
+        bottom: 0;
+        }
+        }
+        &._active {
+        span {
+        transform: scale(0);
+        &:first-child {
+        transform: rotate(-45deg);
+        top: calc(50% - 1px);
+        }
+        &:last-child {
+        transform: rotate(45deg);
+        bottom: calc(50% - 1px);
+        }
+        }
+        @media (max-width:320px){
+            transform: translateX(20px);
+        }
+        }
+        }
+    }
+}
+
+
+.nav {
+    transition: all .2s ease 0s;
+    @media (max-width:992px){
+        display: none;
+    }
+    &._active{
+        display: block;
+    }
+    &__menu {
+        @media (max-width:992px){
+            @include flexStyle(flex, start, start, start);
+            flex-direction: column;
+        }
+    }
+    &__logo{
+        display: none;
+        @media (max-width:992px) {
+            display: block;
+            transform: translate(-20px,-30px);
+
+        }
+    }
+
+    &__item {
+        a{
+            @include fontStyle(16px, 500, 150%, #18191F);
+            
+        }
+    }
+    &__body {
+        @include flexStyle(flex, flex-start, center, start);
+        gap: 50px;
+        @media (max-width: 992px){
+            flex-direction: column;
+            overflow: auto;
+            background: $accentColor;
+            height: 100%;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 25px;
+            padding: 100px 0px 0px 50px;
+            box-shadow: 5px 0px 24px -4px ;
+        }
+    }
+}
+
+
+.header-buttons {
+    @include flexStyle(flex, space-between, center, center);
+    gap: 35px;
+    a{
+        @include fontStyle(14px, 500, 142%, $accentColor);
+        display: block;
+        @media (max-width:992px) {
+            color: #18191F;
+        }
+    }
+
+    &__reg {
+        width: 100px;
+        padding: 10px 20px;
+        background: $accentColor;
+        @include fontStyle(14px, 500, 142%, #fff);
+        border-radius: 6px;
+        cursor: pointer;
+        @media (max-width:992px){
+            background: #fff;
+            color: #18191F;
+        }
+    }
+}
+
+
+//----------/header----------
+
+
+//----------hero----------
+
+.hero {
+    background: #F5F7FA;
+
+    &__container {
+    }
+
+    &__body {
+        @include flexStyle(flex, space-between, start, start);
+        gap: 7%;
+        padding: 96px 0px;
+        @media (max-width:1024px){
+            flex-direction: column-reverse;
+            align-items: center;
+            text-align: center;
+        }
+        @media (max-width:425px){
+            padding: 30px 0px;
+        }
+    }
+
+    &__info {
+    }
+
+    &__img {
+        img{
+            height: 100%;
+            object-fit: contain;
+            @media (max-width:425px){
+                width: 100%;
+                object-fit: contain;
+           
+            }
+        }
+        
+    }
+}
+
+.info {
+
+    &__title {
+        @include fontStyle(64px, 600, 120%, $headersColor);
+        margin-bottom: 16px;
+        span{
+            color: $accentColor;
+        }
+        @media (max-width:425px){
+            font-size: 45px;
+        }
+    }
+
+    &__text {
+        @include fontStyle(16px, 400, 150%, $textColor);
+        margin-bottom: 32px;
+    }
+    button{
+        padding: 14px 32px;
+        @include fontStyle(16px, 500, 150%, #fff);
+        background: $accentColor;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+}
+
+
+//----------/hero----------
+
+
+
+//----------clients----------
+
+.clients {
+
+    &__container {
+    }
+
+    &__body {
+        padding: 40px 0px;
+    }
+
+    &__title {
+       
+    }
+
+    &__list {
+    }
+}
+
+.title {
+    @include fontStyle(16px, 400, 150%, $textColor);
+    margin-bottom: 16px;
+    text-align: center;
+    h1{
+       @include fontStyle(36px, 600, 122.22%, $headersColor); 
+       margin-bottom: 8px;
+    }
+}
+.clients-list {
+    @include flexStyle(flex, space-between, center, center);
+    gap: 10%;
+    padding: 40px 0px;
+    flex-wrap: wrap;
+    @media (max-width:1024px){
+        gap: 5%;
+    }
+    @media (max-width:768px){
+        justify-content: center;
+    }
+    
+
+    &__item {
+    }
+}
+
+
+
+
+//----------/clients----------
+
+
+//----------manage----------
+
+.manage {
+
+    &__container {
+    }
+
+    &__body {
+    }
+
+    &__title {
+    }
+
+    &__list {
+        @include flexStyle(flex, space-between, center, center);
+        gap: 10%;
+        @media (max-width:1024px){
+            flex-direction: column;
+        }
+    }
+
+    &__item {
+    }
+}
+
+.title {
+}
+.manage-item {
+    height: 280px;
+    width: auto;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px 0px rgba(171, 190, 209, 0.20);
+    padding: 24px 32px;
+    @media (max-width:1024px){
+        &:not(:last-child){
+            margin-bottom: 25px;
+        }
+    }
+    &__icon {
+        img{
+            margin-bottom: 24px;
+        }
+        
+    }
+
+    &__text {
+        h2{
+            @include fontStyle(28px, 700, 128%, $headersColor);
+            margin-bottom: 10px;
+        }
+        @include fontStyle(14px, 400, 142%, $textColor);
+    }
+}
+
+
+
+//----------/manage----------
+
+//----------upgrade----------
+
+.upgrade {
+
+    &__container {
+    }
+
+    &__body {
+        @include flexStyle(flex, space-between, center, start);
+        gap: 10%;
+        padding: 45px 0px;
+        @media (max-width:1024px){
+            gap: 5%;
+            align-items: flex-start;
+        }
+        @media (max-width:768px){
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__pic {
+        img{
+            @media (max-width:768px){
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+
+    &__text {
+        text-align: left;
+        button{
+            display: block;
+            margin-top: 32px;
+            padding: 14px 32px;
+            border-radius: 4px;
+            background: $accentColor;
+            @include fontStyle(16px, 500, 150%, #fff);
+        }
+    }
+}
+
+.title {
+}
+
+
+
+//----------/upgrade----------
+
+
+//----------advantages----------
+
+.advantages {
+    background: #F5F7FA;;
+    &__container {
+    }
+
+    &__body {
+        padding: 64px 0px;
+        @include flexStyle(flex, space-between, center, start);
+        @media (max-width:1024px){
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: start;
+            gap: 25px;
+        }
+    }
+
+    &__title {
+        @include fontStyle(16px, 400, 150%, $headersColor);
+        text-align: start;
+        h1{
+            span{
+                color: $accentColor;
+            }
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 40px;
+        column-gap: 30px;
+        @media (max-width:768px){
+            grid-template-rows: repeat(1, 1fr);
+            grid-template-columns: repeat(1, 1fr); 
+        }
+    }
+
+    &__item {
+        @include flexStyle(flex, flex-start, center, start);
+        gap: 16px;
+    }
+}
+
+.title {
+}
+.adv-item {
+
+    &__pic {
+    }
+
+    &__text {
+        h2{
+            @include fontStyle(28px, 700, 128%, $headersColor);
+           
+        }
+    }
+}
+
+
+
+//----------/advantages----------
+
+
+
+//----------design----------
+
+.design {
+
+    &__container {
+    }
+
+    &__body {
+        @include flexStyle(flex, space-between, center, start);
+        gap: 10%;
+        padding: 45px 0px;
+        @media (max-width:1024px){
+            gap: 5%;
+            align-items: flex-start;
+        }
+        @media (max-width:768px){
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__pic {
+        @media (max-width:768px){
+            margin-bottom: 35px;
+        }
+        img{
+            @media (max-width:768px){
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+
+    &__text {
+        text-align: left;
+        button{
+            display: block;
+            margin-top: 32px;
+            padding: 14px 32px;
+            border-radius: 4px;
+            background: $accentColor;
+            @include fontStyle(16px, 500, 150%, #fff);
+        }
+    }
+}
+
+
+//----------/design----------
+
+
+
+
+//----------review----------
+
+.review {
+    background: var(--neutral-silver, #F5F7FA);
+    padding: 32px 0px;
+
+    &__container {
+    }
+
+    &__body {
+        @include flexStyle(flex, space-between, center, start);
+        gap: 5%;
+        @media (max-width: 768px){
+            flex-direction: column;
+        }
+    }
+
+    &__logo {
+        img{
+           height: 100%;
+            object-fit: contain;
+            @media(max-width:425px){
+                width: 100%;
+            }
+        }
+    }
+
+    &__text {
+
+    }
+}
+
+.review-text {
+    
+    article{
+        @include fontStyle(16px, 500, 150%, $textColor);
+        margin-bottom: 16px;
+    }
+    &__person {
+        margin-bottom: 38px;
+        h1{
+            @include fontStyle(20px, 600, 150%, $accentColor);
+            margin-bottom: 8px;
+        }
+        @include fontStyle(16px, 400, 150%, $textColor);
+    }
+
+    &__customers {
+       
+    }
+}
+.customers {
+    @include flexStyle(flex, start, center, center);
+    gap: 28px;
+    @media (max-width:768px){
+        flex-direction: column;
+    }
+    
+
+    &__logo {
+        align-items: center;
+            text-align: center;
+        a{
+            
+            &:not(:last-child){
+                margin-right: 40px;
+                @media (max-width:1440px){
+                    margin-right: 10px;
+                }
+            }
+        }
+       
+    }
+
+    &__button {
+        a{
+            @include fontStyle(20px, 600, 150%, $accentColor);
+            img{
+                transform: translateY(15%);
+            }
+        }
+    }
+}
+
+
+
+
+//----------/review----------
+
+
+
+//----------marketing----------
+
+.marketing {
+
+    &__container {
+    }
+
+    &__body {
+        padding: 48px 0px;
+    }
+
+    &__title {
+        margin-bottom: 16px;
+    }
+
+    &__list {
+        @include flexStyle(flex, space-between, start, center);
+        gap: 2%;
+        @media (max-width:1024px){
+            flex-direction: column;
+        }
+    }
+
+    &__item {
+    }
+}
+
+.title {
+}
+.marketing-item {
+   @media (max-width: 1024px){
+    height: 100%;
+    width: 70%;
+    margin: 0 auto;
+    @media (max-width:768px){
+        width: 100%;
+    }
+   }
+    width: 100%;
+    &__pic {
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            
+        }
+    }
+
+    &__text {
+        width: 80%;
+        height: 200px;
+        background: #f5f7fa;
+        padding: 16px;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0px 8px 16px 0px rgba(171, 190, 209, 0.40);
+        transform: translateY(-50%);
+        @media (max-width:768px){
+            width: 90%;
+            height: 175px;
+        }
+        h2{
+            @include fontStyle(20px, 600, 120%, $textColor);
+            margin-bottom: 24px;
+            @media (max-width: 768px){
+                font-size: 18px;
+            }
+        }
+    }
+
+    &__button {
+        a{
+            @include fontStyle(20px, 600, 140%, $accentColor);
+            img{
+                transform: translateY(11%);
+            }
+        }
+        
+    }
+}
+
+
+
+
+//----------/marketing----------
+
+
+
+//----------demo----------
+
+.demo {
+    padding: 32px 0;
+    background: #f5f7fa;
+    
+    &__container {
+    }
+
+    &__body {
+       text-align: center;
+        h1{
+            @include fontStyle(64px, 600, 118%, $headersColor);
+            text-shadow: 0px 4px 4px 0px black;
+            margin-bottom: 35px;
+            @media (max-width: 768px){
+                font-size: 45px;
+            }
+            @media (max-width:425px){
+                font-size: 35px;
+            }
+        }
+        button{
+            padding: 14px 32px;
+            @include fontStyle(20px, 600, 140%, #fff);
+            background: $accentColor;
+            border-radius: 4px;
+            cursor: pointer;
+            img{
+                transform: translateY(40%);
+            }
+    }
+}
+}
+
+
+
+
+
+//----------/demo----------
