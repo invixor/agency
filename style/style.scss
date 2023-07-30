@@ -798,3 +798,114 @@ $accentColor: #4CAF4F;
 
 
 //----------/demo----------
+
+
+//----------footer----------
+
+.footer {
+    background: #263238;
+    padding: 64px 0;
+
+    &__container {
+    }
+
+    &__body {
+        @include flexStyle(flex, space-between, start, start);
+        @media (max-width:768px){
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__info {
+    }
+
+    &__nav {
+    }
+
+    &__contact {
+        width: 25%;
+        text-align: center;
+        @media (max-width: 768px){
+            width: 100%;
+        }
+        h2{
+            @include fontStyle(20px, 600, 140%, #fff);
+            margin-bottom: 24px;
+        }
+        input{
+            background:  var(--default-white, #FFF);
+            opacity: 0.20000000298023224;
+            border-radius: 8px;
+            @include fontStyle(14px, 400, 142%, #d9dbe1);
+            padding: 9px 0px 11px 12px;
+            width: 100%;
+            &:focus{
+                color: $headersColor;
+            }
+            @media (max-width: 768px){
+                width: 50%;
+            }
+            @media (max-width: 425px){
+                width: 100%;
+            }
+        }
+    }
+}
+
+.footer-info {
+    @media (max-width:768px){
+        margin-bottom: 25px;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    &__logo {
+        margin-bottom: 40px;
+    }
+
+    &__text {
+        @include fontStyle(14px, 400, 142%, #F5F7FA);
+        margin-bottom: 40px;
+    }
+
+    &__socials {
+        @include flexStyle(flex, start, center, center);
+        gap: 15px;
+        @media (max-width:768px){
+            justify-content: center;
+        }
+    }
+
+    &__pic {
+    }
+}
+.footer-nav {
+    @include flexStyle(flex, space-between, start, start);
+    gap: 80px;
+    @media (max-width:768px){
+        margin-bottom: 25px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    &__list {
+        h2{
+            @include fontStyle(20px, 600, 140%, #fff);
+            margin-bottom: 24px;
+        }
+        li{
+            a{
+                @include fontStyle(14px, 400, 142%, #f5f7fa);
+            }
+            &:not(:last-child){
+                margin-bottom: 12px;
+            }
+        }
+    }
+}
+
+
+//----------/footer----------

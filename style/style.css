@@ -770,4 +770,123 @@ body._lock {
 }
 .demo__body button img {
   transform: translateY(40%);
+}
+
+.footer {
+  background: #263238;
+  padding: 64px 0;
+}
+.footer__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  text-align: start;
+}
+@media (max-width: 768px) {
+  .footer__body {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.footer__contact {
+  width: 25%;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .footer__contact {
+    width: 100%;
+  }
+}
+.footer__contact h2 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 140%;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.footer__contact input {
+  background: var(--default-white, #FFF);
+  opacity: 0.200000003;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 142%;
+  color: #d9dbe1;
+  padding: 9px 0px 11px 12px;
+  width: 100%;
+}
+.footer__contact input:focus {
+  color: #4D4D4D;
+}
+@media (max-width: 768px) {
+  .footer__contact input {
+    width: 50%;
+  }
+}
+@media (max-width: 425px) {
+  .footer__contact input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-info {
+    margin-bottom: 25px;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+}
+.footer-info__logo {
+  margin-bottom: 40px;
+}
+.footer-info__text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 142%;
+  color: #F5F7FA;
+  margin-bottom: 40px;
+}
+.footer-info__socials {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+}
+@media (max-width: 768px) {
+  .footer-info__socials {
+    justify-content: center;
+  }
+}
+.footer-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  text-align: start;
+  gap: 80px;
+}
+@media (max-width: 768px) {
+  .footer-nav {
+    margin-bottom: 25px;
+    width: 100%;
+    justify-content: center;
+  }
+}
+.footer-nav__list h2 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 140%;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.footer-nav__list li a {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 142%;
+  color: #f5f7fa;
+}
+.footer-nav__list li:not(:last-child) {
+  margin-bottom: 12px;
 }/*# sourceMappingURL=style.css.map */
